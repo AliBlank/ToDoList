@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>MyToDoList</title>
+</head>
+<body>
+    <header class="header"><h1 style="text-align: center;">My Daily To Do List</h1></header>
+    <main class="container">
+        <form action="/add" method="POST">
+            <input type="text" name="todoInput" id="Todo" placeholder="Add a new task">
+            <button id="" type="submit">Submit</button>
+        </form>
+        <ol>
+            {% for task in todo_list %}
+            <li>
+                {{ task.text}} || {{ task.complete}}
+                <a href="/update/{{task.id}}">update</a>
+                <a href="/delete/{{task.id}}">delete</a>
+            </li>
+            {% endfor %}
+        </ol>
+    
+    </main>
+</body>
+</html>
